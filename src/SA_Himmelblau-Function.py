@@ -21,6 +21,8 @@ x,y = 2, 1
 print('-'*30)
 print(f'\nincial solution: ({x:.3f},{y:.3f})')
 print(f'inicial objective value: {Himmelblau_Function(x,y):.3f}')
+x_best, y_best = x,y
+obj_best = Himmelblau_Function(x,y)
 
 # hyperparameters
 T0 = 1000 #inicial temperature
@@ -58,6 +60,11 @@ for i in range(M): # how many time decrese the temp: iterations
         elif rand_num <= SA_probability_function(obj_val_temp,obj_val_current,T0):
             x,y = x_temp,y_temp
             obj_val_current = obj_val_temp
+        
+        #save best solution
+        if obj_val_temp <= obj_best:
+            x_best,y_best = x_temp,y_temp
+            obj_best = obj_val_temp
     
     temp_values.append(T0)
     obj_values.append(obj_val_current)          
