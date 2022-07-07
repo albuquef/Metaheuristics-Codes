@@ -51,7 +51,6 @@ for i in range(M): # how many time decrese the temp: iterations
         obj_val_temp = Himmelblau_Function(x_temp,y_temp)
         obj_val_current = Himmelblau_Function(x,y)
         
-        
         rand_num = np.random.rand()
         if obj_val_temp <= obj_val_current:
             x,y = x_temp,y_temp
@@ -72,8 +71,11 @@ for i in range(M): # how many time decrese the temp: iterations
 
 
 print('-'*30)
-print(f'final solution: ({x:.3f},{y:.3f})')
+print(f'\nfinal solution: ({x:.3f},{y:.3f})')
 print(f'final objective value: {Himmelblau_Function(x,y):.3f}')
+print('-'*30)
+print(f'\nbest solution: ({x_best:.3f},{y_best:.3f})')
+print(f'best objective value: {obj_best:.3f}')
 print('-'*30)
 print('Ploting...')
 plt.plot(temp_values,obj_values)
