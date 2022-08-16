@@ -93,10 +93,10 @@ def child_Mutation(Child,prob_mutation = 0.3):
         rand1, rand2 =  rd.sample(range(0,len(Parent_1)), 2)
         pos_initial,pos_final = min(rand1,rand2), max(rand1,rand2)
         
-        print(pos_initial,pos_final)
+        # print(pos_initial,pos_final)
         
         child_segment = Child[pos_initial:pos_final+1]
-        print(child_segment)
+        # print(child_segment)
         
         Child[pos_initial:pos_final+1] = list(reversed(child_segment[0:(pos_final-pos_initial)+1]))
 
@@ -136,14 +136,16 @@ Flow = pd.DataFrame([[0,5,2,4,1,0,0,6],[5,0,3,0,2,2,2,0],[2,3,0,0,0,0,0,5],
 
 inicial_solution = ["D","A","C","B","G","E","F","H"] # inicial solution
 
-print(Solution_Cost(inicial_solution))
+
+print(f'inicial solution: {inicial_solution}')
+print(f'inicial solution cost: {Solution_Cost(inicial_solution)}')
 
 
 ### VARIABLES ###
 ### VARIABLES ###
 prob_crossover = 1 # Probability of crossover
 prob_mutation = 0.3 # Probability of mutation
-K = 3 # For Tournament selection
+K = 3 # For Tournament selection - ps: not used
 pop = 100 # Population per generation
 gen = 30 # Number of generations
 ### VARIABLES ###
@@ -198,11 +200,6 @@ Min_for_all_Generations_for_Mut_2_2_2 = np.empty((0,len(X0)+2))
 
 Generation = 1 
 
-
-
-
-
-
 for i in range(gen):
     
     
@@ -219,15 +216,15 @@ for i in range(gen):
     Worst_Best_in_Generation_X = []
     
     
-    print()
-    print("--> GENERATION: #",Generation)
+    # print()
+    # print("--> GENERATION: #",Generation)
     
     Family = 1
     
     for j in range(int(pop/2)): # range(int(pop/2))
         
-        print()
-        print("--> FAMILY: #",Family)
+        # print()
+        # print("--> FAMILY: #",Family)
           
         
         # Tournament Selection to find Parents        
@@ -247,9 +244,9 @@ for i in range(gen):
         Total_Cost_Mut_2 = Solution_Cost(Mutated_Child_2) 
         
         
-        print()
-        print("FV at Mutated Child #1 at Gen #",Generation,":", Total_Cost_Mut_1)
-        print("FV at Mutated Child #2 at Gen #",Generation,":", Total_Cost_Mut_2)
+        # print()
+        # print("FV at Mutated Child #1 at Gen #",Generation,":", Total_Cost_Mut_1)
+        # print("FV at Mutated Child #2 at Gen #",Generation,":", Total_Cost_Mut_2)
         
         
         Mutated_Child_1 = np.copy(Mutated_Child_1)
@@ -398,25 +395,25 @@ plt.annotate("Minimum Reached at: %s" % Look, xy=xyz, xytext=xyzz,
 plt.show()
 
 print()
-print("Initial Solution:",X0)
+# print("Initial Solution:",X0)
 print("Final Solution:",One_Final_Guy_Final[:,2:])
 print("The Lowest Cost is:",One_Final_Guy_Final[:,1])
 print("At Generation:",One_Final_Guy_Final[:,0])
 print()
-print("### METHODS ###")
-print("# Selection Method = Tournament Selection")
-print("# Crossover = C1 (order) but 2-point selection")
-print("# Mutation = #1- Inverse")
-print("# Other = Elitism")
-print("### METHODS ###")
-print()
-print("### VARIABLES ###")
-print("prob_crossover = %s" % prob_crossover)
-print("prob_mutation = %s" % prob_mutation)
-print("K = %s" % K)
-print("pop = %s" % pop)
-print("gen = %s" % gen)
-print("### VARIABLES ###")
+# print("### METHODS ###")
+# print("# Selection Method = Tournament Selection")
+# print("# Crossover = C1 (order) but 2-point selection")
+# print("# Mutation = #1- Inverse")
+# print("# Other = Elitism")
+# print("### METHODS ###")
+# print()
+# print("### VARIABLES ###")
+# print("prob_crossover = %s" % prob_crossover)
+# print("prob_mutation = %s" % prob_mutation)
+# print("K = %s" % K)
+# print("pop = %s" % pop)
+# print("gen = %s" % gen)
+# print("### VARIABLES ###")
             
             
             
